@@ -1,0 +1,196 @@
+/* Step 1 */
+/* Select the logo */
+#logo{
+    animation: logomove 5s;
+}
+
+/* Keyframe for logo */
+@keyframes logomove {
+    from {
+        width: 25px;
+        opacity: 0;
+    }
+    to {
+        width: 475px;
+        opacity: 1;
+    }
+}
+
+/* Step 2 */
+/* Body */
+body{
+    /* Font Information */
+    font-family:'Poppins', sans-serif;
+
+    /* Background Information */
+    background-image: url('../images/concrete_seamless.png');
+    background-color: #f1f1f1;
+}
+
+/* Step 3 */
+/* Header */
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Step 4 */
+/* Nav Links */
+.nav_links{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Step 5 */
+/* Make sure visited links remain the same color as before */
+.nav_links li.nav_item a:visited {
+    color: blue;
+}
+
+/* Step 6 */
+/* Selecting the direct children of the card class */
+.card > header{
+    background-color: #288088;
+    border: 2px solid #45ADAD;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* Step 7 */
+/* Select the card class */
+.card{
+    /* Round the top edges */
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+
+    /* Add Flex */
+    display: flex;
+    flex-direction: column;
+
+    /* Update the width */
+    width: 450px;
+}
+
+/* Step 8 */
+.pricing{
+    /* Add Flex */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Step 9 */
+.gallery img{
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* Step 10 */
+.gallery{
+    /* Add flex */
+    display: flex;
+
+    /* Add wrap to prevent single line of images */
+    flex-wrap: wrap;
+
+    /* Center all of the content */
+    justify-content: center;
+}
+
+/* Step 11 and beyond */
+@media only screen and (min-width:900px){
+    /* Step 11 */
+    header{
+        /* Make it appear as a row now */
+        flex-direction: row;
+
+        /* Keeps navlinks to the far right and the logo to the far left */
+        justify-content: space-between;
+
+    }
+
+    /* Step 11 */
+    .nav_links{
+        flex-direction: row;
+    }
+
+    /* Step 12 */
+    .pricing{
+        flex-direction: row;
+    }
+
+    /* Step 12 */
+    .card{
+        width: 275px;
+    }
+
+    /* Step 13 */
+    body > header{
+        top: 0;
+        width: 100%;
+        position: sticky;
+    }
+}
+
+/* Step 14 */
+/* Reduced Motion Media Query */
+@media (prefers-reduced-motion: reduce){
+    /* Step 14 */
+    #logo{
+        animation: none;
+    }
+}
+
+/* Step 15 and Beyond */
+@media print {
+    /* Step 15 and 16 */
+    body{
+        /* Change the font */
+        font-family: Arial, Helvetica;
+
+        /* Remove the background image */
+        background-image: none;
+    }
+    
+    /* Step 17 */
+    nav{
+        /* Utilize all available space */
+        width: 100%;
+    }
+
+    /* Step 17 */
+    .nav_links{
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    /* Step 18 */
+    .pricing{
+        align-items: flex-end;
+        flex-direction: row;
+    }
+
+    /* Step 19 */
+    .card{
+        border: 2px solid #45ADDD;
+        flex-basis: 325px;
+    }
+
+    /* Step 20 */
+    /* Need to include in order to make the page with gallery content empty and then remove it from being printed */
+    #gallery, .gallery{
+        display: none;
+    }
+
+    /* Step 21 */
+    .card li:nth-child(2):after{
+        content: ' \1f44d';
+    }
+}
